@@ -1,0 +1,94 @@
+@use '@/styles/vars' as *;
+
+.About {
+  .content {
+    display: flex;
+    gap: $gap-2xl;
+    padding: 0 150px;
+    padding-top: 150px;
+
+    a:hover {
+      color: $primary-text !important;
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      padding: 0 80px;
+      padding-top: 130px;
+    }
+    @media (max-width: $breakpoint-md) {
+      // padding: 0 24px;
+      // padding-left: 24px;
+      padding-left: 35%;
+      padding-right: 24px;
+      overflow: hidden;
+      padding-top: 130px;
+      flex-direction: column;
+      gap: $gap-xl;
+      p,
+      span,
+      .About {
+        font-size: $fs-3xs;
+      }
+    }
+    @media (max-width: 375px) {
+      padding-left: 20%;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: $gap-regular;
+      h1 {
+        font-size: $fs-regular;
+      }
+      p {
+        font-size: $fs-xxs;
+        color: $secondary-text;
+        font-weight: 300;
+        max-width: 250px;
+      }
+    }
+    .information {
+      a {
+        text-decoration: underline;
+        font-weight: 300;
+        color: $secondary-text;
+      }
+    }
+    .contact {
+      max-width: 100%;
+      .contact_links {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-regular;
+
+        span,
+        a {
+          font-size: $fs-xxs;
+          font-weight: 300;
+          color: $secondary-text;
+        }
+
+        .contact_link {
+          display: flex;
+          flex-direction: row;
+          @media (max-width: 350px) {
+            gap: $gap-xs;
+          }
+          .label {
+            flex-shrink: 0;
+            width: 50px;
+            // background: red;
+          }
+        }
+      }
+    }
+  }
+
+  .logo {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    object-fit: contain;
+    width: 60px;
+  }
+}

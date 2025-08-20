@@ -1,0 +1,200 @@
+@use '../styles/vars' as *;
+
+:root {
+  --horizontal-padding: 100px; // default
+  --vertical-padding: 80px;
+}
+
+@media (max-width: $breakpoint-md) {
+  :root {
+    --horizontal-padding: 20px;
+    --vertical-padding: 80px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  :root {
+    --horizontal-padding: 4px;
+    --vertical-padding: 80px;
+  }
+}
+
+.hero {
+  padding: var(--vertical-padding) var(--horizontal-padding);
+
+  .content {
+    --container-width: calc(100vw - var(--horizontal-padding) * 2);
+
+    position: relative;
+    gap: $gap-large;
+    width: 100%;
+
+    img {
+      position: absolute;
+      object-fit: contain;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        transform: scale(1);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 105%;
+        width: 105%;
+      }
+
+      &:hover,
+      &:focus {
+        img {
+          transform: scale(1.02);
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    --width-4th: calc(var(--container-width) * 4 / 12);
+    --width-5th: calc(var(--container-width) * 5 / 12);
+    --width-6th: calc(var(--container-width) * 6 / 12);
+    --width-7th: calc(var(--container-width) * 7 / 12);
+    --width-7half: calc(var(--container-width) * 7.5 / 12);
+    --width-10th: calc(var(--container-width) * 10 / 12);
+    --width-11th: calc(var(--container-width) * 11 / 12);
+
+    --r-landscape: 0.6667; // 3/2
+    --r-portrait: 1.5; // 2/3
+
+    --gap-multiplier: 1.3;
+
+    --t1: 0px;
+    --w1: var(--width-7th);
+    --h1: calc(var(--w1) * var(--r-landscape));
+
+    --t2: calc(var(--h1) / 2);
+    --w2: var(--width-4th);
+    --h2: calc(var(--w2) * var(--r-portrait));
+
+    --t3: calc(var(--h1) * var(--gap-multiplier));
+    --w3: var(--width-5th);
+    --h3: calc(var(--w3) * var(--r-landscape));
+
+    --t4: calc(var(--t3) + var(--h3) * var(--gap-multiplier));
+    --w4: var(--width-7th);
+    --h4: calc(var(--w4) * var(--r-landscape));
+
+    --t5: calc(var(--t4) + var(--h4) * var(--gap-multiplier));
+    --w5: var(--width-4th);
+    --h5: calc(var(--w5) * var(--r-portrait));
+
+    --t6: var(--t5);
+    --w6: var(--width-7th);
+    --h6: calc(var(--w6) * var(--r-landscape));
+
+    --t7: calc(var(--t6) + var(--h6) * var(--gap-multiplier));
+    --w7: var(--width-5th);
+    --h7: calc(var(--w7) * var(--r-landscape));
+
+    --t8: calc(var(--t7) + var(--h7) * var(--gap-multiplier));
+    --w8: var(--width-5th);
+    --h8: calc(var(--w8) * var(--r-landscape));
+
+    --t9: calc(var(--t8) + var(--h8) * var(--gap-multiplier));
+    --w9: var(--width-7th);
+    --h9: calc(var(--w9) * var(--r-landscape));
+
+    --content-height: calc(var(--t9) + var(--h9));
+    height: var(--content-height);
+
+    @media (max-width: $breakpoint-sm) {
+      --w1: var(--width-11th);
+      --gap-multiplier: 1.8;
+      --t2: calc(var(--h1) * 1.1);
+      --w3: var(--width-6th);
+      --w4: var(--width-10th);
+    }
+
+    .logo {
+      position: absolute;
+      top: calc(var(--t2) / 2);
+      right: calc(var(--width-4th) / 2);
+      transform: translate(50%, -50%);
+      width: 100px;
+    }
+
+    .img1 {
+      width: var(--w1);
+      height: var(--h1);
+      top: var(--t1);
+      left: 0;
+    }
+    .img2 {
+      width: var(--w2);
+      height: var(--h2);
+      top: var(--t2);
+      right: 0;
+    }
+    .img3 {
+      width: var(--w3);
+      height: var(--h3);
+      top: var(--t3);
+      left: 8.333%; // equivalent of 1/12 * 100%
+    }
+    .img4 {
+      width: var(--w4);
+      height: var(--h4);
+      top: var(--t4);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .img5 {
+      width: var(--w5);
+      height: var(--h5);
+      top: var(--t5);
+      left: 0;
+    }
+    .img6 {
+      width: var(--w6);
+      height: var(--h6);
+      top: var(--t6);
+      right: 0;
+    }
+    .img7 {
+      width: var(--w7);
+      height: var(--h7);
+      top: var(--t7);
+      left: var(--width-5th);
+    }
+    .img8 {
+      width: var(--w8);
+      height: var(--h8);
+      top: var(--t8);
+      left: 8.333%; // equivalent of 1/12 * 100%
+    }
+    .img9 {
+      width: var(--w9);
+      height: var(--h9);
+      top: var(--t9);
+      left: var(--width-5th);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      img {
+        // optional responsive adjustments
+      }
+      .logo {
+        position: fixed;
+        top: 24px;
+        left: 24px;
+        width: 60px;
+        transform: translate(0, 0);
+        z-index: 12;
+      }
+    }
+  }
+}

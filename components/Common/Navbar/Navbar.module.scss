@@ -1,0 +1,86 @@
+@use '../../../styles/vars' as *;
+
+.hamburger {
+  display: flex;
+  position: fixed;
+  top: $page-gap;
+  right: $page-gap;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $gap-xs;
+  z-index: 11;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+
+  span {
+    height: 1px;
+    background: $secondary-text;
+    display: block;
+    transform-origin: center;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .top {
+    width: 28px;
+  }
+
+  .middle {
+    width: 20px;
+  }
+
+  .bottom {
+    width: 28px;
+  }
+
+  // Adjusted transforms
+  .topOpen {
+    transform: translate(0, 9px) rotate(45deg);
+  }
+
+  .middleOpen {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .bottomOpen {
+    transform: translate(0, -9px) rotate(-45deg);
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: $primary-background;
+  padding: $page-gap;
+  z-index: -1; // Hidden behind content by default
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+
+  &.navOpen {
+    z-index: 10; // Now above page content
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-large;
+    padding-bottom: $gap-xl;
+
+    a {
+      font-size: $fs-large;
+    }
+  }
+}

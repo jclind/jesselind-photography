@@ -1,0 +1,366 @@
+// @use '@/styles/vars' as *;
+
+// .collection {
+//   min-height: 90vh;
+
+//   .content {
+//     position: relative;
+//     margin: 34px 150px;
+//     height: 100%;
+
+//     @media (max-width: $breakpoint-lg) {
+//       margin-left: 0;
+//       margin-right: 0;
+//       padding-left: 40%;
+//       padding-right: 24px;
+
+//       .myPhotosLink {
+//         font-size: $fs-regular;
+//       }
+//     }
+
+//     @media (max-width: $breakpoint-sm) {
+//       padding-right: 8px;
+//     }
+
+//     a {
+//       font-size: $fs-large;
+//       &:hover {
+//         text-decoration: none;
+//       }
+//     }
+
+//     $myPhotosLinkHeight: 22.5px;
+
+//     .myPhotosLink {
+//       margin-top: 15px;
+//       height: $myPhotosLinkHeight;
+//     }
+
+//     .links {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: flex-start;
+//       gap: $gap-small;
+//       padding-top: $gap-2xl;
+
+//       a {
+//         height: 40px;
+//         text-align: start;
+//         vertical-align: top;
+//         min-width: 40px;
+
+//         .leftNumbers {
+//           display: none;
+//         }
+
+//         .imageContainer {
+//           position: absolute;
+//           height: 0;
+//           width: 0;
+//           overflow: hidden;
+//           right: 0;
+//           transform: translateY(-25px);
+
+//           img {
+//             object-fit: contain;
+//             height: 100%;
+//             width: 100%;
+//           }
+//         }
+
+//         .line {
+//           position: absolute;
+//           left: 0;
+//           width: 100%;
+//           transform: translateY(-35px);
+//         }
+//       }
+
+//       @media (min-width: $breakpoint-lg) {
+//         a:hover {
+//           color: $primary-text;
+//           font-weight: 300;
+
+//           .imageContainer {
+//             width: 50%;
+//             height: fit-content;
+//           }
+
+//           .line {
+//             height: 1px;
+//             border-top: 1px dotted $border-color;
+//           }
+//         }
+
+//         a.imgToTop {
+//           .imageContainer {
+//             transform: translateY(calc(-100% - 0px));
+//           }
+
+//           .line {
+//             transform: translateY(5px);
+//           }
+//         }
+//       }
+
+//       @media (max-width: $breakpoint-lg) {
+//         display: flex;
+//         flex-direction: column;
+
+//         a {
+//           display: flex;
+//           flex-direction: column;
+//           align-items: flex-start;
+//           height: fit-content;
+//           gap: $gap-large;
+
+//           .leftNumbers {
+//             display: flex;
+//             align-items: flex-end;
+//             position: absolute;
+//             left: calc(24px);
+//             font-size: $fs-xxs;
+//             height: 17px;
+//           }
+
+//           .name {
+//             border-bottom: 1px dotted $border-color;
+//             font-size: $fs-regular;
+//             height: 17px;
+//           }
+
+//           .imageContainer {
+//             position: relative;
+//             width: 100%;
+//             height: fit-content;
+//           }
+
+//           .line {
+//             // border-top: 1px dotted $border-color;
+//           }
+//         }
+
+//         a:hover {
+//           color: $primary-text;
+//           font-weight: 400;
+
+//           ~ a {
+//             color: $border-color;
+//             background: red;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+@use '@/styles/vars' as *;
+
+.collection {
+  min-height: 90vh;
+
+  .content {
+    position: relative;
+    margin: 34px 150px;
+    height: 100%;
+
+    @media (max-width: $breakpoint-lg) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40%;
+      padding-right: 24px;
+
+      .myPhotosLink {
+        font-size: $fs-regular;
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding-right: 8px;
+    }
+
+    a {
+      font-size: $fs-large;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    $myPhotosLinkHeight: 22.5px;
+
+    .myPhotosLink {
+      margin-top: 15px;
+      height: $myPhotosLinkHeight;
+    }
+
+    // Replace your .links styles with this updated version
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $gap-small;
+      padding-top: $gap-2xl;
+
+      a {
+        height: 40px;
+        text-align: start;
+        vertical-align: top;
+        min-width: 40px;
+        transition: opacity 0.2s ease;
+
+        .leftNumbers {
+          display: none;
+        }
+
+        .name {
+          cursor: pointer;
+        }
+
+        .imageContainer {
+          position: absolute;
+          height: 0;
+          width: 0;
+          overflow: hidden;
+          right: 0;
+          transform: translateY(-25px);
+          max-height: 45vh;
+          aspect-ratio: 3 / 2;
+
+          img {
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        .line {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          transform: translateY(-35px);
+        }
+      }
+
+      // Modern browsers: Use :has() selector (Chrome 105+, Firefox 121+, Safari 15.4+)
+      @supports selector(:has(*)) {
+        &:has(.name:hover) a {
+          opacity: 0.4;
+        }
+
+        a:has(.name:hover) {
+          opacity: 1 !important;
+        }
+      }
+
+      // JavaScript fallback for broader browser support
+      @supports not selector(:has(*)) {
+        // When JavaScript adds 'hovering' class to container
+        &.hovering a {
+          opacity: 0.4;
+        }
+
+        // When JavaScript adds 'hovered' class to specific link
+        a.hovered {
+          opacity: 1 !important;
+        }
+      }
+
+      // Responsive styles
+      @media (min-width: $breakpoint-lg) {
+        // Modern browsers
+        @supports selector(:has(*)) {
+          a:has(.name:hover) {
+            font-weight: 300;
+
+            .imageContainer {
+              width: 50%;
+              height: fit-content;
+            }
+
+            .line {
+              height: 1px;
+              border-top: 1px dotted $border-color;
+            }
+          }
+        }
+
+        // JavaScript fallback
+        @supports not selector(:has(*)) {
+          a.hovered {
+            font-weight: 300;
+
+            .imageContainer {
+              width: 50%;
+              height: fit-content;
+            }
+
+            .line {
+              height: 1px;
+              border-top: 1px dotted $border-color;
+            }
+          }
+        }
+
+        a.imgToTop {
+          .imageContainer {
+            transform: translateY(-100%);
+          }
+
+          .line {
+            transform: translateY(5px);
+          }
+        }
+      }
+
+      @media (max-width: $breakpoint-lg) {
+        flex-direction: column;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          height: fit-content;
+          gap: $gap-large;
+
+          .leftNumbers {
+            display: flex;
+            align-items: flex-end;
+            position: absolute;
+            left: 24px;
+            font-size: $fs-xxs;
+            height: 17px;
+          }
+
+          .name {
+            border-bottom: 1px dotted $border-color;
+            font-size: $fs-regular;
+            height: 17px;
+          }
+
+          .imageContainer {
+            position: relative;
+            width: 100%;
+            height: fit-content;
+          }
+        }
+
+        // Modern browsers
+        @supports selector(:has(*)) {
+          a:has(.name:hover) {
+            font-weight: 400;
+          }
+        }
+
+        // JavaScript fallback
+        @supports not selector(:has(*)) {
+          a.hovered {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
