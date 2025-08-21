@@ -37,7 +37,7 @@ const Navbar = () => {
   const handleNavClick = () => {
     setTimeout(() => {
       setIsOpen(false) // close the menu after a click
-    }, 100) // slight delay to allow click to register before closing
+    }, 200) // slight delay to allow click to register before closing
   }
 
   return (

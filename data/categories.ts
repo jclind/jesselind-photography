@@ -31,6 +31,16 @@ export const categories: CollectionType[] = [
     imgSrc: '/images/home/8.webp',
     path: '/collections/seascape',
   },
+  {
+    name: 'abstract',
+    imgSrc: '/images/collections/urban.webp',
+    path: '/collections/abstract',
+  },
+  {
+    name: 'astronomy',
+    imgSrc: '/images/collections/urban.webp',
+    path: '/collections/astronomy',
+  },
   // {
   //   name: 'street',
   //   imgSrc: '/images/home/9.webp',

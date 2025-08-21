@@ -1,21 +1,20 @@
-'use client'
+import React from 'react'
+import CollectionsPhoto from './CollectionsPhoto'
 
-import PhotoViewer from '@/components/PhotoViewer'
-import { PhotoViewerFilterType } from '@/types/Photo'
-
-interface PageProps {
-  params: { collectionID: string; photoID: string }
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { photoID: string }
+}) => {
+  const id = await params.photoID
+  return {
+    title: `${id} | Jesse Lind Photography`,
+    description: `View photo ${id} by Jesse Lind`,
+  }
 }
 
-const CollectionsPhotoPage = ({ params }: PageProps) => {
-  const { collectionID, photoID } = params
-  const filteredParams = { photoID }
-  const path = `/collections/${collectionID}` // Define the path for navigation
-  const filter: PhotoViewerFilterType = {
-    field: 'category',
-    value: params.collectionID,
-  } // Example filter, adjust as needed
-  return <PhotoViewer params={filteredParams} path={path} filter={filter} />
+const CollectionsPhotoPage = () => {
+  return <CollectionsPhoto />
 }
 
 export default CollectionsPhotoPage

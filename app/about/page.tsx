@@ -3,6 +3,11 @@ import styles from './page.module.scss'
 import LogoButton from '@/components/Common/LogoButton'
 import { contactLinks } from '@/data/contactLinks'
 
+export const metadata = {
+  title: 'About | Jesse Lind Photography',
+  description: 'Learn more about Jesse Lind and his photography journey',
+}
+
 const About = () => {
   return (
     <div className={styles.About}>

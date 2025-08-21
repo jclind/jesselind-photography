@@ -1,14 +1,18 @@
-'use client'
-
-import PhotoViewer from '@/components/PhotoViewer'
+import SinglePhoto from './SinglePhoto'
 
 interface PageProps {
   params: { photoID: string }
 }
-
-const AllPhotosPage = ({ params }: PageProps) => {
-  const path = '/all-photos' // Define the path for navigation
-  return <PhotoViewer params={params} path={path} />
+export const generateMetadata = async ({ params }: PageProps) => {
+  const id = await params.photoID
+  return {
+    title: `${id} | Jesse Lind Photography`,
+    description: `View photo ${id} by Jesse Lind`,
+  }
 }
 
-export default AllPhotosPage
+const SinglePhotoPage = () => {
+  return <SinglePhoto />
+}
+
+export default SinglePhotoPage
