@@ -1,12 +1,13 @@
 import React from 'react'
 import CollectionsPhoto from './CollectionsPhoto'
+import { use } from 'react'
 
-export const generateMetadata = async ({
+export const generateMetadata = ({
   params,
 }: {
-  params: { photoID: string }
+  params: Promise<{ photoID: string }>
 }) => {
-  const id = await params.photoID
+  const id = use(params).photoID
   return {
     title: `${id} | Jesse Lind Photography`,
     description: `View photo ${id} by Jesse Lind`,

@@ -1,10 +1,12 @@
 import SinglePhoto from './SinglePhoto'
+import { use } from 'react'
 
-interface PageProps {
-  params: { photoID: string }
-}
-export const generateMetadata = async ({ params }: PageProps) => {
-  const id = await params.photoID
+export function generateMetadata({
+  params,
+}: {
+  params: Promise<{ photoID: string }>
+}) {
+  const id = use(params).photoID
   return {
     title: `${id} | Jesse Lind Photography`,
     description: `View photo ${id} by Jesse Lind`,

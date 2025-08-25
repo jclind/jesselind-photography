@@ -1,6 +1,25 @@
 @use '../styles/vars' as *;
 @use '../styles/fonts';
 
+:root {
+  --horizontal-padding: 100px; // default
+  --vertical-padding: 80px;
+}
+
+@media (max-width: $breakpoint-md) {
+  :root {
+    --horizontal-padding: 20px;
+    --vertical-padding: 80px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  :root {
+    --horizontal-padding: 4px;
+    --vertical-padding: 80px;
+  }
+}
+
 /* Reset & Base Styles */
 *,
 *::before,
