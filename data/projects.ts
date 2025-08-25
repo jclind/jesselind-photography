@@ -13,4 +13,10 @@ export const projects: ProjectType[] = [
     date: '04-27-2021',
     description: 'Three week van trip out west with Ben.',
   },
+  {
+    id: 'japan-2023',
+    name: 'Japan 2023',
+    date: '04-25-2023',
+    description: 'Three week solo trip to Japan.',
+  },
 ]
