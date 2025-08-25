@@ -14,7 +14,8 @@
     align-items: flex-start;
     gap: $gap-medium;
     width: fit-content;
-    a {
+    a,
+    button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,6 +25,8 @@
 }
 
 .adminNav {
+  display: flex;
+  gap: $gap-medium;
   position: fixed;
   top: 24px;
   left: 24px;

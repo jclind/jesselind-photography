@@ -16,6 +16,7 @@ import { db, storage } from '@/lib/firebase'
 import { categories, CollectionType } from '@/data/categories'
 import { projects, ProjectType } from '@/data/projects'
 import AdminNav from '../AdminNav'
+import AdminGate from '@/components/AdminGate'
 
 export default function AddPhoto() {
   // Metadata inputs that apply to all files
@@ -158,96 +159,101 @@ export default function AddPhoto() {
   }
 
   return (
-    <div className={styles.AddPhoto}>
-      <AdminNav />
-      <div className={styles.content}>
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
-        >
-          <label className={styles.fileInputLabel}>
-            {previewUrls.length > 0 ? (
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '0.5rem',
-                  flexWrap: 'wrap',
-                  justifyContent: 'center',
-                }}
-              >
-                {previewUrls.map((url, i) => (
-                  <img
-                    key={i}
-                    src={url}
-                    alt={`Preview ${i + 1}`}
-                    style={{
-                      maxWidth: '100px',
-                      maxHeight: '100px',
-                      borderRadius: '8px',
-                      objectFit: 'cover',
-                    }}
-                  />
-                ))}
-              </div>
-            ) : (
-              'Choose images...'
-            )}
-            <input
-              type='file'
-              accept='image/*'
-              multiple
-              onChange={e =>
-                setFiles(e.target.files ? Array.from(e.target.files) : [])
-              }
-            />
-          </label>
-          <input
-            type='text'
-            placeholder='Title (optional)'
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-          />
-          <input
-            type='date'
-            value={photoDate}
-            onChange={e => setPhotoDate(e.target.value)}
-            placeholder='Date taken (optional)'
-          />
-          <input
-            type='text'
-            placeholder='Location (optional)'
-            value={location}
-            onChange={e => setLocation(e.target.value)}
-          />
-          <select value={category} onChange={e => setCategory(e.target.value)}>
-            <option value=''>Select category (optional)</option>
-            {categories.map((cat: CollectionType) => (
-              <option key={cat.name} value={cat.name}>
-                {cat.name}
-              </option>
-            ))}
-          </select>
-          <select
-            value={projectID}
-            onChange={e => setProjectID(e.target.value)}
+    <AdminGate>
+      <div className={styles.AddPhoto}>
+        <AdminNav />
+        <div className={styles.content}>
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
           >
-            <option value=''>Select project (optional)</option>
-            {projects.map((proj: ProjectType) => (
-              <option key={proj.name} value={proj.name}>
-                {proj.name}
-              </option>
-            ))}
-          </select>
-          <textarea
-            placeholder='Description (optional)'
-            value={description}
-            onChange={e => setDescription(e.target.value)}
-          />
-          <button type='submit' disabled={loading}>
-            {loading ? 'Uploading...' : 'Upload Photos'}
-          </button>
-        </form>
+            <label className={styles.fileInputLabel}>
+              {previewUrls.length > 0 ? (
+                <div
+                  style={{
+                    display: 'flex',
+                    gap: '0.5rem',
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {previewUrls.map((url, i) => (
+                    <img
+                      key={i}
+                      src={url}
+                      alt={`Preview ${i + 1}`}
+                      style={{
+                        maxWidth: '100px',
+                        maxHeight: '100px',
+                        borderRadius: '8px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  ))}
+                </div>
+              ) : (
+                'Choose images...'
+              )}
+              <input
+                type='file'
+                accept='image/*'
+                multiple
+                onChange={e =>
+                  setFiles(e.target.files ? Array.from(e.target.files) : [])
+                }
+              />
+            </label>
+            <input
+              type='text'
+              placeholder='Title (optional)'
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
+            <input
+              type='date'
+              value={photoDate}
+              onChange={e => setPhotoDate(e.target.value)}
+              placeholder='Date taken (optional)'
+            />
+            <input
+              type='text'
+              placeholder='Location (optional)'
+              value={location}
+              onChange={e => setLocation(e.target.value)}
+            />
+            <select
+              value={category}
+              onChange={e => setCategory(e.target.value)}
+            >
+              <option value=''>Select category (optional)</option>
+              {categories.map((cat: CollectionType) => (
+                <option key={cat.name} value={cat.name}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+            <select
+              value={projectID}
+              onChange={e => setProjectID(e.target.value)}
+            >
+              <option value=''>Select project (optional)</option>
+              {projects.map((proj: ProjectType) => (
+                <option key={proj.name} value={proj.name}>
+                  {proj.name}
+                </option>
+              ))}
+            </select>
+            <textarea
+              placeholder='Description (optional)'
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+            />
+            <button type='submit' disabled={loading}>
+              {loading ? 'Uploading...' : 'Upload Photos'}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </AdminGate>
   )
 }
