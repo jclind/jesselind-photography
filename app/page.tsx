@@ -15,55 +15,55 @@ export default function Home() {
           className={styles.logo}
         />
         <Link
-          href='/collections/1'
+          href='/all-photos/00176'
           className={`${styles.displayedImg} ${styles.img1}`}
         >
           <img src='/images/home/1.webp' alt='' />
         </Link>
         <Link
-          href='/collections/2'
+          href='/all-photos/00130'
           className={`${styles.displayedImg} ${styles.img2}`}
         >
           <img src='/images/home/2.webp' alt='' />
         </Link>
         <Link
-          href='/collections/3'
+          href='/all-photos/00170'
           className={`${styles.displayedImg} ${styles.img3}`}
         >
           <img src='/images/home/3.webp' alt='' />
         </Link>
         <Link
-          href='/collections/4'
+          href='/all-photos/00173'
           className={`${styles.displayedImg} ${styles.img4}`}
         >
           <img src='/images/home/4.webp' alt='' />
         </Link>
         <Link
-          href='/collections/5'
+          href='/all-photos/00138'
           className={`${styles.displayedImg} ${styles.img5}`}
         >
           <img src='/images/home/5.webp' alt='' />
         </Link>
         <Link
-          href='/collections/6'
+          href='/all-photos/00174'
           className={`${styles.displayedImg} ${styles.img6}`}
         >
           <img src='/images/home/6.webp' alt='' />
         </Link>
         <Link
-          href='/collections/7'
+          href='/all-photos/00181'
           className={`${styles.displayedImg} ${styles.img7}`}
         >
           <img src='/images/home/7.webp' alt='' />
         </Link>
         <Link
-          href='/collections/8'
+          href='/all-photos/00188'
           className={`${styles.displayedImg} ${styles.img8}`}
         >
           <img src='/images/home/8.webp' alt='' />
         </Link>
         <Link
-          href='/collections/9'
+          href='/all-photos/00185'
           className={`${styles.displayedImg} ${styles.img9}`}
         >
           <img src='/images/home/9.webp' alt='' />
