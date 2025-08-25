@@ -2,19 +2,24 @@ import React from 'react'
 import CollectionGallery from './CollectionGallery'
 import { use } from 'react'
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
   params: Promise<{ collectionID: string }>
 }) => {
-  const id = use(params).collectionID
+  const { collectionID } = await params
   return {
-    title: `${id} | Jesse Lind Photography`,
-    description: `A Collection of photos in the ${id} category by Jesse Lind`,
+    title: `${collectionID} | Jesse Lind Photography`,
+    description: `A Collection of photos in the ${collectionID} category by Jesse Lind`,
   }
 }
 
-const CollectionPage = () => {
+interface PageProps {
+  params: Promise<{ collectionID: string }>
+}
+
+const CollectionPage = async ({ params }: PageProps) => {
+  await params
   return <CollectionGallery />
 }
 
