@@ -17,7 +17,7 @@ import GalleryTemplate from '@/components/GalleryTemplate'
 import { categories } from '@/data/categories'
 import { useParams } from 'next/navigation'
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 20
 
 const CollectionGallery = () => {
   const { collectionID } = useParams<{ collectionID: string }>()
@@ -36,14 +36,14 @@ const CollectionGallery = () => {
       ? query(
           photosRef,
           where('category', '==', collectionID),
-          orderBy('createdAt', 'desc'),
+          orderBy('photoDate', 'desc'),
           startAfter(lastDoc),
           limit(PAGE_SIZE)
         )
       : query(
           photosRef,
           where('category', '==', collectionID),
-          orderBy('createdAt', 'desc'),
+          orderBy('photoDate', 'desc'),
           limit(PAGE_SIZE)
         )
 
