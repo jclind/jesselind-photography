@@ -1,6 +1,5 @@
 import React from 'react'
 import CollectionGallery from './CollectionGallery'
-import { use } from 'react'
 
 export const generateMetadata = async ({
   params,

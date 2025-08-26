@@ -19,7 +19,12 @@ export const projects: ProjectType[] = [
     id: 'japan-2023',
     name: 'Japan 2023',
     date: '04-25-2023',
-    description: 'Three week solo trip to Japan.',
+    description:
+      'Three week solo trip to Japan exploring Sapporo, Tokyo, Kyoto, and Osaka.',
     posterUrl: '/images/projects/japan-2023-poster.webp',
   },
-]
+].sort((a, b) => {
+  const dateA = new Date(a.date)
+  const dateB = new Date(b.date)
+  return dateB.getTime() - dateA.getTime() // newest first
+})
