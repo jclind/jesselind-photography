@@ -10,6 +10,10 @@ const ProjectGallery = ({ currProject }: ProjectGalleryProps) => {
   if (!currProject) {
     return <div>Project not found</div>
   }
+
+  const projectID = currProject.id
+  const imagePath = `/projects/${projectID}`
+
   return null
 }
 

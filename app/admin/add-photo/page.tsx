@@ -238,7 +238,7 @@ export default function AddPhoto() {
             >
               <option value=''>Select project (optional)</option>
               {projects.map((proj: ProjectType) => (
-                <option key={proj.name} value={proj.name}>
+                <option key={proj.name} value={proj.id}>
                   {proj.name}
                 </option>
               ))}
