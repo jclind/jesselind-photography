@@ -20,12 +20,14 @@ const PhotoRows = ({
   useEffect(() => {
     // Function to calculate the optimal height and number of photos to place in gallery row
     const calculatePhotosRows = (originalPhotos: Photo[]) => {
-      console.log('originalPhotos', originalPhotos)
-      const MAX_ROW_HEIGHT = 700
+      const pageHeight = window.innerHeight
+      const MAX_ROW_HEIGHT = Math.min(700, pageHeight)
       const PREFERRED_ROW_HEIGHT = 600
 
       const photoRows: { rowPhotos: Photo[]; height: number }[] = []
       let currRowIndex = 0
+      console.log('pageHeight', pageHeight)
+      console.log('MAX_ROW_HEIGHT', MAX_ROW_HEIGHT)
       originalPhotos.map((photo, index, origArr) => {
         const currR = getAspectRatioFromPhoto(photo)
         const pageW = window.innerWidth
@@ -61,7 +63,6 @@ const PhotoRows = ({
     }
 
     const newPhotos = photos.length > 0 ? calculatePhotosRows(photos) : []
-    console.log(newPhotos)
     setFormattedPhotos(newPhotos)
   }, [photos])
   if (formattedPhotos.length <= 0) return null
@@ -79,10 +80,7 @@ const PhotoRows = ({
               const r = getAspectRatioFromPhoto(photo)
               const h = row.height
               const w = h * r
-              console.log('aspect ratio', r)
-              console.log('height', h)
-              console.log('width', w)
-              // return <img src={photo.fullUrl} />
+
               return (
                 <Link
                   href={createFullImagePath(photo)}
