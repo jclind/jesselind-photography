@@ -4,6 +4,7 @@ export type ProjectType = {
   date: string
   endDate?: string
   description: string
+  posterUrl: string
 }
 
 export const projects: ProjectType[] = [
@@ -12,11 +13,13 @@ export const projects: ProjectType[] = [
     name: 'Out West Trip',
     date: '04-27-2021',
     description: 'Three week van trip out west with Ben.',
+    posterUrl: '/images/projects/out-west-trip-poster.webp',
   },
   {
     id: 'japan-2023',
     name: 'Japan 2023',
     date: '04-25-2023',
     description: 'Three week solo trip to Japan.',
+    posterUrl: '/images/projects/japan-2023-poster.webp',
   },
 ]
