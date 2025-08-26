@@ -36,14 +36,14 @@ const CollectionGallery = () => {
       ? query(
           photosRef,
           where('category', '==', collectionID),
-          orderBy('photoDate', 'desc'),
+          orderBy('sequenceNumber', 'desc'),
           startAfter(lastDoc),
           limit(PAGE_SIZE)
         )
       : query(
           photosRef,
           where('category', '==', collectionID),
-          orderBy('photoDate', 'desc'),
+          orderBy('sequenceNumber', 'desc'),
           limit(PAGE_SIZE)
         )
 

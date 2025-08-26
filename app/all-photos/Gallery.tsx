@@ -27,11 +27,11 @@ const Gallery = () => {
     const q = lastDoc
       ? query(
           photosRef,
-          orderBy('photoDate', 'desc'),
+          orderBy('sequenceNumber', 'desc'),
           startAfter(lastDoc),
           limit(PAGE_SIZE)
         )
-      : query(photosRef, orderBy('photoDate', 'desc'), limit(PAGE_SIZE))
+      : query(photosRef, orderBy('sequenceNumber', 'desc'), limit(PAGE_SIZE))
 
     const snapshot = await getDocs(q)
 
