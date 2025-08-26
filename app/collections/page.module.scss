@@ -210,6 +210,7 @@
         vertical-align: top;
         min-width: 40px;
         transition: opacity 0.2s ease;
+        text-transform: capitalize;
 
         .leftNumbers {
           display: none;
@@ -244,32 +245,31 @@
         }
       }
 
-      // Modern browsers: Use :has() selector (Chrome 105+, Firefox 121+, Safari 15.4+)
-      @supports selector(:has(*)) {
-        &:has(.name:hover) a {
-          opacity: 0.4;
-        }
-
-        a:has(.name:hover) {
-          opacity: 1 !important;
-        }
-      }
-
-      // JavaScript fallback for broader browser support
-      @supports not selector(:has(*)) {
-        // When JavaScript adds 'hovering' class to container
-        &.hovering a {
-          opacity: 0.4;
-        }
-
-        // When JavaScript adds 'hovered' class to specific link
-        a.hovered {
-          opacity: 1 !important;
-        }
-      }
-
       // Responsive styles
       @media (min-width: $breakpoint-lg) {
+        // Modern browsers: Use :has() selector (Chrome 105+, Firefox 121+, Safari 15.4+)
+        @supports selector(:has(*)) {
+          &:has(.name:hover) a {
+            opacity: 0.4;
+          }
+
+          a:has(.name:hover) {
+            opacity: 1 !important;
+          }
+        }
+
+        // JavaScript fallback for broader browser support
+        @supports not selector(:has(*)) {
+          // When JavaScript adds 'hovering' class to container
+          &.hovering a {
+            opacity: 0.4;
+          }
+
+          // When JavaScript adds 'hovered' class to specific link
+          a.hovered {
+            opacity: 1 !important;
+          }
+        }
         // Modern browsers
         @supports selector(:has(*)) {
           a:has(.name:hover) {
@@ -341,9 +341,10 @@
           }
 
           .imageContainer {
-            position: relative;
+            position: relative !important;
             width: 100%;
             height: fit-content;
+            background: red;
           }
         }
 

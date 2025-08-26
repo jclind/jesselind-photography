@@ -26,7 +26,9 @@ const Collections = () => {
               className={index > 3 ? styles.imgToTop : ''}
               data-category-name={category.name}
             >
-              <span className={styles.leftNumbers}>{`0${index + 1}`}</span>
+              <span className={styles.leftNumbers}>{`${index < 9 ? '0' : ''}${
+                index + 1
+              }`}</span>
               <span className={styles.name}>{category.name}</span>
               <div className={styles.imageContainer}>
                 <img src={category.imgSrc} alt={category.name} />
