@@ -8,8 +8,8 @@ export const generateMetadata = async ({
 }) => {
   const { photoID } = await params
   return {
-    title: `${photoID} | Jesse Lind Photography`,
-    description: `View photo ${photoID} by Jesse Lind`,
+    title: `${photoID || 'Photo'} | Jesse Lind Photography`,
+    description: `View ${photoID || 'this photo'} by Jesse Lind`,
   }
 }
 
