@@ -35,14 +35,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <head>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -50,19 +49,18 @@ export default function RootLayout({
                 page_path: window.location.pathname,
               });
             `,
-            }}
-          />
-          <link
-            rel='preconnect'
-            href='https://firebasestorage.googleapis.com'
-            crossOrigin=''
-          />
-          <link
-            rel='preconnect'
-            href='https://firestore.googleapis.com'
-            crossOrigin=''
-          />
-        </head>
+          }}
+        />
+        <link
+          rel='preconnect'
+          href='https://firebasestorage.googleapis.com'
+          crossOrigin=''
+        />
+        <link
+          rel='preconnect'
+          href='https://firestore.googleapis.com'
+          crossOrigin=''
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar />
