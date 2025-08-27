@@ -1,5 +1,6 @@
 export const EMAIL = 'jesselindphoto@gmail.com'
 export const PERSONAL_WEBSITE = 'jesselind.com'
+export const PHOTO_WEBSITE_URL = 'https://jesselindphoto.vercel.app'
 export const CONTACT_LINKS = [
   {
     label: 'Email',

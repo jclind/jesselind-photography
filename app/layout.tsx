@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.scss'
 import Navbar from '@/components/Common/Navbar'
+import { PHOTO_WEBSITE_URL } from '@/data/contact'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     'Explore the photography portfolio of Jesse Lind, featuring curated galleries and projects.',
   openGraph: {
     title: 'Jesse Lind Photography',
-    url: 'https://jesselind-photography.vercel.app',
+    url: PHOTO_WEBSITE_URL,
     siteName: 'Jesse Lind Photography',
     images: ['/default-og.png'],
   },
