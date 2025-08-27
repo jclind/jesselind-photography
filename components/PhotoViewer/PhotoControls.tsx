@@ -21,7 +21,7 @@ const PhotoControls = ({
         <button onClick={handleClickPrev} aria-link='Previous photo'>
           <MoveLeft size={16} strokeWidth={1} />
         </button>
-        <Link href={path}>
+        <Link href={path} aria-link='Back to gallery'>
           <LayoutGrid size={16} strokeWidth={1} />
         </Link>
         <button onClick={handleClickNext} aria-link='Next photo'>
