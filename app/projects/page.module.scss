@@ -55,6 +55,12 @@
         width: 100%;
         filter: brightness(1);
         transition: filter 0.5s ease-in-out;
+        .imageContainer {
+          @media (max-width: $breakpoint-lg) {
+            height: 60vw;
+            width: 60vw;
+          }
+        }
         &:hover {
           filter: brightness(1.2);
         }
