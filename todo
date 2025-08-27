@@ -2,7 +2,9 @@
 -[] Change PAGE_LIMIT for photo gallery to get more photos with each query -[X] update abstract and astronomy and people and plane & machine and studio category images
 -[] update abstract collection image for styling issue
 -[] check about page link mobile sizing
+-[] on route change close navbar
 
 # features
 
 -[] add number of photos in cycle in each gallery / photo page
+-[] ad loading where number of loaded images are shown.

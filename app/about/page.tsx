@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './page.module.scss'
 import LogoButton from '@/components/Common/LogoButton'
-import { contactLinks } from '@/data/contactLinks'
+import { CONTACT_LINKS } from '@/data/contact'
 
 export const metadata = {
   title: 'About | Jesse Lind Photography',
@@ -45,8 +45,8 @@ const About = () => {
         <div className={styles.contact}>
           <h1>Contact</h1>
           <div className={styles.contact_links}>
-            {contactLinks.map(link => (
-              <div className={styles.contact_link}>
+            {CONTACT_LINKS.map(link => (
+              <div className={styles.contact_link} key={link.label}>
                 <span className={styles.label}>{link.label}</span>
                 <a href={link.link} target='_blank' rel='noopener noreferrer'>
                   {link.value}
