@@ -24,6 +24,7 @@ const Navbar = () => {
 
   const links = [
     { name: 'Home', src: '/' },
+    { name: 'Projects', src: '/projects' },
     { name: 'Collections', src: '/collections' },
     { name: 'All Photos', src: '/all-photos' },
     { name: 'About', src: '/about' },

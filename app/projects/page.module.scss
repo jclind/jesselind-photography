@@ -13,6 +13,27 @@
       font-size: $fs-large;
       font-weight: 200;
     }
+    .leftNumbers {
+      display: none;
+    }
+    @media (max-width: $breakpoint-lg) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40%;
+      padding-right: 24px;
+
+      h1 {
+        font-size: $fs-regular;
+      }
+      .leftNumbers {
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        left: 24px;
+        font-size: $fs-xxs;
+        height: 17px;
+      }
+    }
 
     .projectsList {
       display: grid;
@@ -21,6 +42,14 @@
       align-items: center;
       margin-top: $gap-2xl;
 
+      @media (max-width: $breakpoint-xl) {
+        gap: $gap-large;
+      }
+      @media (max-width: $breakpoint-lg) {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-xl;
+      }
       .projectCard {
         max-width: 700px;
         width: 100%;
