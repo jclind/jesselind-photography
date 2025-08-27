@@ -3,11 +3,17 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import styles from './Navbar.module.scss'
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   const toggleIsOpen = () => setIsOpen(state => !state)
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   // Lock/unlock body scroll when menu is open
   useEffect(() => {
@@ -34,12 +40,6 @@ const Navbar = () => {
       shouldOpenInNewTab: true,
     },
   ]
-
-  const handleNavClick = () => {
-    setTimeout(() => {
-      setIsOpen(false) // close the menu after a click
-    }, 200) // slight delay to allow click to register before closing
-  }
 
   return (
     <>
@@ -78,12 +78,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ) : (
-                <Link
-                  key={idx}
-                  href={link.src}
-                  onClick={handleNavClick}
-                  tabIndex={isOpen ? 0 : -1}
-                >
+                <Link key={idx} href={link.src} tabIndex={isOpen ? 0 : -1}>
                   {link.name}
                 </Link>
               )
