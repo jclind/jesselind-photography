@@ -43,7 +43,12 @@ const Navbar = () => {
 
   return (
     <>
-      <button className={styles.hamburger} onClick={toggleIsOpen} tabIndex={0}>
+      <button
+        className={styles.hamburger}
+        onClick={toggleIsOpen}
+        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={isOpen}
+      >
         <span
           className={`${styles.top} ${isOpen ? styles.topOpen : ''}`}
         ></span>
@@ -55,26 +60,37 @@ const Navbar = () => {
         ></span>
       </button>
 
-      <div className={`${styles.navbar} ${isOpen ? styles.navOpen : ''}`}>
-        <div className={styles.links}>
-          {links.map((link, idx) =>
-            link.shouldOpenInNewTab ? (
-              <a
-                key={idx}
-                href={link.src}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link key={idx} href={link.src} onClick={handleNavClick}>
-                {link.name}
-              </Link>
-            )
-          )}
-        </div>
-      </div>
+      <header>
+        <nav
+          className={`${styles.navbar} ${isOpen ? styles.navOpen : ''}`}
+          hidden={!isOpen}
+        >
+          <div className={styles.links}>
+            {links.map((link, idx) =>
+              link.shouldOpenInNewTab ? (
+                <a
+                  key={idx}
+                  href={link.src}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={idx}
+                  href={link.src}
+                  onClick={handleNavClick}
+                  tabIndex={isOpen ? 0 : -1}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
+          </div>
+        </nav>
+      </header>
     </>
   )
 }
