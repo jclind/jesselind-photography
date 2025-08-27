@@ -126,10 +126,12 @@ const PhotoViewerPage = ({ params, filter, path }: PageProps) => {
           <button
             onClick={handleClickPrev}
             className={styles.prev_btn}
+            aria-label='Previous photo'
           ></button>
           <button
             onClick={handleClickNext}
             className={styles.next_btn}
+            aria-label='Next photo'
           ></button>
         </div>
 
