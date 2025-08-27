@@ -28,16 +28,15 @@ const ProjectsPage = () => {
               >
                 <div className={styles.imageContainer}>
                   <Image
-                    src={project.posterUrl} // full res image
+                    src={project.posterUrl}
                     alt={project.name}
                     width={700}
                     height={700}
                     placeholder='blur'
-                    blurDataURL={project.thumbnailUrl} // 👈 your small thumbnail
+                    blurDataURL={project.thumbnailUrl}
                     className={styles.projectImage}
                   />
                 </div>
-                {/* <img src={project.posterUrl} alt='' /> */}
               </Link>
             </div>
           ))}
