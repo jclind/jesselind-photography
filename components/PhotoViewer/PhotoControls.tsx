@@ -18,13 +18,13 @@ const PhotoControls = ({
   return (
     <div className={styles.footer}>
       <div className={styles.controls}>
-        <button onClick={handleClickPrev}>
+        <button onClick={handleClickPrev} aria-link='Previous photo'>
           <MoveLeft size={16} strokeWidth={1} />
         </button>
         <Link href={path}>
           <LayoutGrid size={16} strokeWidth={1} />
         </Link>
-        <button onClick={handleClickNext}>
+        <button onClick={handleClickNext} aria-link='Next photo'>
           <MoveRight size={16} strokeWidth={1} />
         </button>
       </div>
