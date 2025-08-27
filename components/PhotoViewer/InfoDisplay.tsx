@@ -16,6 +16,7 @@ const InfoDisplay = ({ photoInfo }: InfoDisplayProps) => {
       <button
         className={`${styles.info_btn} ${isOpen ? styles.open : ''}`}
         onClick={() => setIsOpen(prev => !prev)}
+        aria-label='Toggle photo information'
       >
         {isOpen ? (
           <X size={20} strokeWidth={1.2} />
