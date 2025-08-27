@@ -84,7 +84,11 @@ const GalleryTemplate = ({
       }`}
     >
       <LogoButton />
-      <button className={styles.toggle_mode_btn} onClick={handleModeToggle}>
+      <button
+        className={styles.toggle_mode_btn}
+        onClick={handleModeToggle}
+        aria-label='Toggle view mode'
+      >
         {isThumbnailMode ? <LayoutGrid /> : <PanelsTopLeft />}
       </button>
       <div
