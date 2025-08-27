@@ -2,27 +2,74 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.scss'
 import Navbar from '@/components/Common/Navbar'
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+import { PHOTO_WEBSITE_URL } from '@/data/contact'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(PHOTO_WEBSITE_URL),
   title: 'Jesse Lind Photography',
   description:
     'Explore the photography portfolio of Jesse Lind, featuring curated galleries and projects.',
+
   openGraph: {
     title: 'Jesse Lind Photography',
-    url: 'https://jesselind-photography.vercel.app',
+    url: PHOTO_WEBSITE_URL,
     siteName: 'Jesse Lind Photography',
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/default-og.webp',
+        width: 1000,
+        height: 1000,
+        alt: 'Jesse Lind Photography Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jesse Lind Photography',
+    description: 'Explore curated galleries and projects by Jesse Lind.',
     images: ['/default-og.png'],
   },
+  icons: [
+    // Desktop favicons
+    {
+      rel: 'icon',
+      url: '/favicon-16x16.png',
+      sizes: '16x16',
+      type: 'image/png',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-32x32.png',
+      sizes: '32x32',
+      type: 'image/png',
+    },
+
+    // iOS / Apple touch
+    {
+      rel: 'apple-touch-icon',
+      url: '/apple-icon-180x180.png',
+      sizes: '180x180',
+    },
+
+    // Android / Chrome
+    {
+      rel: 'icon',
+      url: '/android-icon-192x192.png',
+      sizes: '192x192',
+      type: 'image/png',
+    },
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  authors: [{ name: 'Jesse Lind', url: 'https://jesselind.com' }],
+}
+export const viewport = {
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
@@ -62,7 +109,7 @@ export default function RootLayout({
           crossOrigin=''
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
         <Navbar />
         {children}
       </body>

@@ -12,8 +12,10 @@ export const generateMetadata = async ({
   const { projectID } = await params
   const projectName = projects.find(p => p.id === projectID)?.name || projectID
   return {
-    title: `${projectName} | Jesse Lind Photography`,
-    description: `A collection of photos in the project ${projectName} category by Jesse Lind`,
+    title: `${projectName || 'Project'} | Jesse Lind Photography`,
+    description: `A collection of photos in the project ${
+      projectName || ''
+    } category by Jesse Lind`,
   }
 }
 
