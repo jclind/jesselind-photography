@@ -4,16 +4,21 @@ import CollectionGallery from './CollectionGallery'
 export const generateMetadata = async ({
   params,
 }: {
-  params: { collectionID: string }
+  params: Promise<{ collectionID: string }>
 }) => {
-  const collectionID = await params.collectionID
+  const { collectionID } = await params
   return {
     title: `${collectionID} | Jesse Lind Photography`,
     description: `A Collection of photos in the ${collectionID} category by Jesse Lind`,
   }
 }
 
-const CollectionPage = () => {
+interface PageProps {
+  params: Promise<{ collectionID: string }>
+}
+
+const CollectionPage = async ({ params }: PageProps) => {
+  await params
   return <CollectionGallery />
 }
 

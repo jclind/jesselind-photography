@@ -28,18 +28,33 @@ export const categories: CollectionType[] = [
   },
   {
     name: 'seascape',
-    imgSrc: '/images/home/8.webp',
+    imgSrc: '/images/collections/seascape.webp',
     path: '/collections/seascape',
   },
   {
     name: 'abstract',
-    imgSrc: '/images/collections/urban.webp',
+    imgSrc: '/images/collections/abstract.webp',
     path: '/collections/abstract',
   },
   {
     name: 'astronomy',
-    imgSrc: '/images/collections/urban.webp',
+    imgSrc: '/images/collections/astronomy.webp',
     path: '/collections/astronomy',
+  },
+  {
+    name: 'people',
+    imgSrc: '/images/collections/people.webp',
+    path: '/collections/people',
+  },
+  {
+    name: 'plane & machine',
+    imgSrc: '/images/collections/plane-and-machine.webp',
+    path: '/collections/plane-and-machine',
+  },
+  {
+    name: 'studio',
+    imgSrc: '/images/collections/studio.webp',
+    path: '/collections/studio',
   },
   // {
   //   name: 'street',

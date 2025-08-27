@@ -15,4 +15,9 @@ export const contactLinks = [
     value: 'jesselind.com',
     link: 'https://jesselind.com/',
   },
+  {
+    label: 'Support Me',
+    value: '@jesseclind',
+    link: 'https://buymeacoffee.com/jesseclind',
+  },
 ]

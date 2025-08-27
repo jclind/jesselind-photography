@@ -3,10 +3,13 @@
 import { useEffect, useState } from 'react'
 import styles from './page.module.scss'
 
+const BREAKPOINT_LG = 992
+
 const HoverInteractivity = () => {
   const [currHoveredName, setCurrHoveredName] = useState<string | null>(null)
 
   useEffect(() => {
+    if (window.innerWidth < BREAKPOINT_LG) return
     const links = document.querySelectorAll(`[data-category-name]`)
 
     const handleMouseOver = (event: Event) => {
@@ -37,6 +40,7 @@ const HoverInteractivity = () => {
   }, [])
 
   useEffect(() => {
+    if (window.innerWidth < BREAKPOINT_LG) return
     const links = document.querySelectorAll(`[data-category-name]`)
     const isAnyHovered = currHoveredName !== null
 

@@ -1,0 +1,41 @@
+@use '@/styles/vars' as *;
+
+.adminGate {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  .loginBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40vh;
+    h1 {
+      font-size: $fs-small;
+      margin-bottom: $gap-medium;
+    }
+    input {
+      background: $primary-background;
+      border: 1px solid $border-color;
+      padding: $gap-xs $gap-small;
+      font-size: $fs-xs;
+      font-weight: 200;
+      border-radius: 4px;
+      text-align: center;
+      &:focus {
+        outline: 1px solid $primary-text;
+        outline-offset: 0;
+      }
+      &::placeholder {
+        color: $placeholder-text;
+        opacity: 1;
+      }
+      margin-bottom: $gap-medium;
+    }
+    button {
+      font-size: $fs-xs;
+      // color: $secondary-text;
+    }
+  }
+}

@@ -30,8 +30,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const GA_ID = 'G-G4SQVX634K'
+
   return (
     <html lang='en'>
+      <head>
+        <head>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+            }}
+          />
+          <link
+            rel='preconnect'
+            href='https://firebasestorage.googleapis.com'
+            crossOrigin=''
+          />
+          <link
+            rel='preconnect'
+            href='https://firestore.googleapis.com'
+            crossOrigin=''
+          />
+        </head>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar />
         {children}

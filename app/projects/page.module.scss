@@ -1,0 +1,88 @@
+@use '@/styles/vars' as *;
+
+.projects {
+  min-height: 90vh;
+  .content {
+    position: relative;
+    margin: 34px 150px;
+    height: 100%;
+
+    h1 {
+      margin-top: 15px;
+      height: 22.5px; //!update to $myPhotosLinkHeight;
+      font-size: $fs-large;
+      font-weight: 200;
+    }
+    .leftNumbers {
+      display: none;
+    }
+    @media (max-width: $breakpoint-lg) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40%;
+      padding-right: 24px;
+
+      h1 {
+        font-size: $fs-regular;
+      }
+      .leftNumbers {
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        left: 24px;
+        font-size: $fs-xxs;
+        height: 17px;
+      }
+    }
+
+    .projectsList {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $gap-xl;
+      align-items: center;
+      margin-top: $gap-2xl;
+
+      @media (max-width: $breakpoint-xl) {
+        gap: $gap-large;
+      }
+      @media (max-width: $breakpoint-lg) {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-xl;
+      }
+      .projectCard {
+        max-width: 700px;
+        width: 100%;
+        filter: brightness(1);
+        transition: filter 0.5s ease-in-out;
+        .imageContainer {
+          @media (max-width: $breakpoint-lg) {
+            height: 60vw;
+            width: 60vw;
+          }
+        }
+        &:hover {
+          filter: brightness(1.2);
+        }
+        img {
+          object-fit: contain;
+          aspect-ratio: 1;
+          width: 100%;
+          max-width: 700px;
+          height: 100%;
+        }
+      }
+    }
+
+    // @media (max-width: $breakpoint-lg) {
+    //   margin-left: 0;
+    //   margin-right: 0;
+    //   padding-left: 40%;
+    //   padding-right: 24px;
+
+    //   .myPhotosLink {
+    //     font-size: $fs-regular;
+    //   }
+    // }
+  }
+}

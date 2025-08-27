@@ -119,6 +119,12 @@
       }
     }
   }
+  .content.topGapSmall {
+    padding-top: 100px;
+    @media (max-width: $breakpoint-md) {
+      padding-top: 60px;
+    }
+  }
 }
 
 .Gallery.full_img_mode {

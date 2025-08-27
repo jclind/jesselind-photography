@@ -14,6 +14,7 @@ type GalleryProps = {
   ) => Promise<{ photos: Photo[]; lastDoc: any | null }>
   pageSize?: number
   imagePath: string
+  topGapSmall?: boolean
 }
 
 export const storeImageInSession = (photo: Photo) => {
@@ -24,6 +25,7 @@ const GalleryTemplate = ({
   fetchPhotos,
   pageSize = 10,
   imagePath,
+  topGapSmall,
 }: GalleryProps) => {
   const [photos, setPhotos] = useState<Photo[]>([])
   const [lastDoc, setLastDoc] = useState<any | null>(null)
@@ -82,10 +84,16 @@ const GalleryTemplate = ({
       }`}
     >
       <LogoButton />
-      <button className={styles.toggle_mode_btn} onClick={handleModeToggle}>
+      <button
+        className={styles.toggle_mode_btn}
+        onClick={handleModeToggle}
+        aria-label='Toggle view mode'
+      >
         {isThumbnailMode ? <LayoutGrid /> : <PanelsTopLeft />}
       </button>
-      <div className={styles.content}>
+      <div
+        className={`${styles.content} ${topGapSmall ? styles.topGapSmall : ''}`}
+      >
         <div className={styles.grid}>
           {isThumbnailMode ? (
             photos.map((photo: Photo) => (

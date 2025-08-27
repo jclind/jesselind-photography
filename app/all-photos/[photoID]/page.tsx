@@ -1,17 +1,23 @@
 import SinglePhoto from './SinglePhoto'
 
-interface PageProps {
-  params: { photoID: string }
-}
-export const generateMetadata = async ({ params }: PageProps) => {
-  const id = await params.photoID
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ photoID: string }>
+}) {
+  const { photoID } = await params
   return {
-    title: `${id} | Jesse Lind Photography`,
-    description: `View photo ${id} by Jesse Lind`,
+    title: `${photoID} | Jesse Lind Photography`,
+    description: `View photo ${photoID} by Jesse Lind`,
   }
 }
 
-const SinglePhotoPage = () => {
+interface PageProps {
+  params: Promise<{ collectionID: string; photoID: string }>
+}
+
+const SinglePhotoPage = async ({ params }: PageProps) => {
+  await params
   return <SinglePhoto />
 }
 

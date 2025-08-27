@@ -16,7 +16,7 @@ import { Photo } from '@/types/Photo'
 import GalleryTemplate from '@/components/GalleryTemplate'
 import Head from 'next/head'
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 20
 
 const Gallery = () => {
   const imagePath = '/all-photos'
@@ -27,11 +27,11 @@ const Gallery = () => {
     const q = lastDoc
       ? query(
           photosRef,
-          orderBy('createdAt', 'desc'),
+          orderBy('sequenceNumber', 'desc'),
           startAfter(lastDoc),
           limit(PAGE_SIZE)
         )
-      : query(photosRef, orderBy('createdAt', 'desc'), limit(PAGE_SIZE))
+      : query(photosRef, orderBy('sequenceNumber', 'desc'), limit(PAGE_SIZE))
 
     const snapshot = await getDocs(q)
 

@@ -33,14 +33,7 @@ export default function PhotoThumbnail({
         }
       }}
     >
-      {isThumbnailMode ? (
-        <h1>
-          {photo.storagePath &&
-            photo.storagePath.replace('full/', '').replace('.webp', '')}
-        </h1>
-      ) : (
-        ''
-      )}
+      {isThumbnailMode ? <h1>{photo.id && photo.id}.webp</h1> : ''}
       <img
         className={`${styles.fullImage} ${fullLoaded ? styles.loaded : ''}`}
         src={isThumbnailMode ? photo.thumbnailUrl : photo.fullUrl}
