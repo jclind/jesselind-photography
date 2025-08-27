@@ -27,15 +27,21 @@ const ProjectsPage = () => {
                 className={styles.projectCard}
               >
                 <div className={styles.imageContainer}>
-                  <Image
-                    src={project.posterUrl}
-                    alt={project.name}
-                    width={700}
-                    height={700}
-                    placeholder='blur'
-                    blurDataURL={project.thumbnailUrl}
-                    className={styles.projectImage}
-                  />
+                  <picture>
+                    <source
+                      media='(max-width: 768px)'
+                      srcSet={project.mobilePosterUrl}
+                    />
+                    <Image
+                      src={project.posterUrl}
+                      alt={project.name}
+                      width={700}
+                      height={700}
+                      placeholder='blur'
+                      blurDataURL={project.thumbnailUrl}
+                      className={styles.projectImage}
+                    />
+                  </picture>
                 </div>
               </Link>
             </div>
