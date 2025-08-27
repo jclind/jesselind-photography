@@ -12,7 +12,8 @@ export const projects: ProjectType[] = [
     id: 'out-west-trip',
     name: 'Out West Trip',
     date: '04-27-2021',
-    description: 'Three week van trip out west with Ben.',
+    description:
+      'Three week van trip out west with my brother Ben. Visiting The Badlands, Yellowstone, Grand Teton, Bryce Canyon and more along the way.',
     posterUrl: '/images/projects/out-west-trip-poster.webp',
   },
   {
