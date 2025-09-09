@@ -4,7 +4,6 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.scss'
 import Image from 'next/image'
-import { OnLoadingComplete } from 'next/dist/shared/lib/get-img-props'
 
 const HomeImages = () => {
   const totalImages = 9
