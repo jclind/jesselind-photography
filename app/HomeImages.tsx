@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { ReactEventHandler, useEffect, useState } from 'react'
 import styles from './page.module.scss'
 import Image from 'next/image'
 
@@ -12,7 +12,7 @@ const HomeImages = () => {
   const [allLoaded, setAllLoaded] = useState(false)
   const [isDelayComplete, setIsDelayComplete] = useState(true)
 
-  const handleImageLoad = (img: HTMLImageElement) => {
+  const handleImageLoad = () => {
     setLoadedImages(prev => prev + 1)
   }
 
@@ -27,9 +27,7 @@ const HomeImages = () => {
     }
   }, [loadedImages, totalImages])
   useEffect(() => {
-    console.log('1')
     setTimeout(() => {
-      console.log('2')
       setIsDelayComplete(true)
     }, 500)
   }, [])
@@ -61,7 +59,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/1.webp'
             alt='Rainbow falling on dark mountain'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
@@ -75,7 +73,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/2.webp'
             alt='Two people with blue umbrellas'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={2080}
             height={3120}
           />
@@ -89,7 +87,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/3.webp'
             alt='Ferris wheel with blue sky backdrop'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
@@ -103,7 +101,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/4.webp'
             alt='Cat sitting on fence'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
@@ -117,7 +115,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/5.webp'
             alt='Cat sitting upright'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={2080}
             height={3120}
           />
@@ -131,7 +129,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/6.webp'
             alt='Building with sunset sky'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
@@ -145,7 +143,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/7.webp'
             alt='Boat docked in harbor'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
@@ -159,7 +157,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/8.webp'
             alt='Two birds standing in beach waves'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
@@ -173,7 +171,7 @@ const HomeImages = () => {
             loading='eager'
             src='/images/home/9.webp'
             alt='Group of seagulls flying above lake at beach'
-            onLoadingComplete={handleImageLoad}
+            onLoad={handleImageLoad}
             width={3120}
             height={2080}
           />
