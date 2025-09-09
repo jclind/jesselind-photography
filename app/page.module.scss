@@ -183,6 +183,7 @@
   }
   .loadingPage {
     display: flex;
+    gap: 12px;
     justify-content: center;
     align-items: center;
 
@@ -194,9 +195,10 @@
     left: 0;
     background: $primary-background;
     text-align: center;
-    p {
-      font-size: 60px;
+    span {
+      font-size: 48px;
       font-weight: 400 !important;
+      width: 1ch;
     }
     &.loaded {
       animation: fadeOutToBack 4s ease forwards;

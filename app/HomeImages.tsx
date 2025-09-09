@@ -32,9 +32,9 @@ const HomeImages = () => {
       <div
         className={`${styles.loadingPage} ${allLoaded ? styles.loaded : ''}`}
       >
-        <p>
-          {loadedImages} / {totalImages}
-        </p>
+        <span>{loadedImages}</span>
+        <span>/</span>
+        <span>{totalImages}</span>
       </div>
       <Link
         href='/all-photos/00176'
