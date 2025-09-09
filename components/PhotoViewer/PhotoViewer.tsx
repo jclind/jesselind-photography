@@ -15,7 +15,6 @@ import {
   getPhotoWidthFromHeight,
 } from '@/util/photoDimentionFns'
 import { usePhotoStore } from '@/store/photoStore'
-import LogoButton from '../Common/LogoButton'
 
 interface PageProps {
   params: { photoID: string }
@@ -113,7 +112,6 @@ const PhotoViewerPage = ({ params, filter, path }: PageProps) => {
 
   return (
     <div className={styles.SinglePhoto}>
-      <LogoButton />
       <div className={styles.content}>
         <div className={styles.inner} id='photoContainer'>
           <PhotoLoader

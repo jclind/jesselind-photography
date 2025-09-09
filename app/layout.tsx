@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.scss'
 import Navbar from '@/components/Common/Navbar'
 import { PHOTO_WEBSITE_URL } from '@/data/contact'
+import LogoButton from '@/components/Common/LogoButton'
 
 export const metadata: Metadata = {
   metadataBase: new URL(PHOTO_WEBSITE_URL),
@@ -110,6 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <LogoButton />
         <Navbar />
         {children}
       </body>

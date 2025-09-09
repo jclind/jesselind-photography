@@ -1,7 +1,5 @@
--[X] Change GalleryTemplate max height based on height and width of screen. -[X] Change PAGE_LIMIT for photo gallery to get more photos with each query -[X] update abstract and astronomy and people and plane & machine and studio category images -[X] update abstract collection image for styling issue -[X] check about page link mobile sizing -[X] on route change close navbar -[X] don't allow home page logo to be selected / or turn it into a link
--[] collections page on mobile needs default height to prevent shift
+-[X] Change GalleryTemplate max height based on height and width of screen. -[X] Change PAGE_LIMIT for photo gallery to get more photos with each query -[X] update abstract and astronomy and people and plane & machine and studio category images -[X] update abstract collection image for styling issue -[X] check about page link mobile sizing -[X] on route change close navbar -[X] don't allow home page logo to be selected / or turn it into a link -[X] collections page on mobile needs default height to prevent shift
 
 # features
 
--[] add number of photos in cycle in each gallery / photo page
--[] ad loading where number of loaded images are shown.
+-[] add number of photos in cycle in each gallery / photo page -[X] ad loading where number of loaded images are shown. (Added to home page)

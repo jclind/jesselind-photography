@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import styles from './page.module.scss'
 import { categories } from '@/data/categories'
-import LogoButton from '@/components/Common/LogoButton'
 import HoverInteractivity from './HoverInteractivity'
 
 export const metadata = {
@@ -12,7 +11,6 @@ export const metadata = {
 const Collections = () => {
   return (
     <div className={styles.collection}>
-      <LogoButton />
       <div className={styles.content}>
         <Link href='/all-photos' className={styles.myPhotosLink}>
           My Photos

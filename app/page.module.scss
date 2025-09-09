@@ -4,12 +4,21 @@
   background: $primary-background;
   padding: var(--vertical-padding) var(--horizontal-padding);
 
+  $animation-delay: 0.3s;
   .content {
     --container-width: calc(100vw - var(--horizontal-padding) * 2);
 
     position: relative;
     gap: $gap-large;
     width: 100%;
+    .imagesContainer {
+      opacity: 0;
+      &.loaded {
+        opacity: 1;
+        transition: opacity 0.01s linear;
+        transition-delay: $animation-delay;
+      }
+    }
 
     img {
       position: absolute;
@@ -201,9 +210,26 @@
       width: 1ch;
     }
     &.loaded {
-      animation: fadeOutToBack 4s ease forwards;
-      animation-delay: 0.3s;
+      animation: fadeOutToBack 3s ease forwards;
+      animation-delay: $animation-delay;
     }
+  }
+}
+
+.notFoundPage {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 36px;
+  h1 {
+    font-size: $fs-medium;
+  }
+  a {
+    text-decoration: underline;
+    font-size: $fs-regular;
   }
 }
 
