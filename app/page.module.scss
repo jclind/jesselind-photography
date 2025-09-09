@@ -1,6 +1,7 @@
 @use '@/styles/vars' as *;
 
 .hero {
+  background: $primary-background;
   padding: var(--vertical-padding) var(--horizontal-padding);
 
   .content {
@@ -179,5 +180,41 @@
         z-index: 12;
       }
     }
+  }
+  .loadingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background: $primary-background;
+    text-align: center;
+    p {
+      font-size: 60px;
+      font-weight: 400 !important;
+    }
+    &.loaded {
+      animation: fadeOutToBack 4s ease forwards;
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+@keyframes fadeOutToBack {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% {
+    opacity: 0;
+    z-index: -10;
   }
 }
