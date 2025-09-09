@@ -78,7 +78,14 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ) : (
-                <Link key={idx} href={link.src} tabIndex={isOpen ? 0 : -1}>
+                <Link
+                  key={idx}
+                  href={link.src}
+                  tabIndex={isOpen ? 0 : -1}
+                  onClick={() => {
+                    if (link.src === pathname) setIsOpen(false)
+                  }}
+                >
                   {link.name}
                 </Link>
               )
