@@ -13,6 +13,8 @@
     img {
       position: absolute;
       object-fit: contain;
+      user-select: none;
+      pointer-events: none;
     }
 
     a {
