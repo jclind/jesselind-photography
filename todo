@@ -5,3 +5,4 @@
 -[] add number of photos in cycle in each gallery / photo page -[X] ad loading where number of loaded images are shown. (Added to home page)
 -[] eventually figure out how to make home page loading not be called again (or be delayed while checking for loaded images) if it has already been visited (and the images have been loaded therefore) in this session.
 -[] set persistent state for gallery style
+-[] recalculate gallery layout on page size update
