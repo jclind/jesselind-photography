@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './page.module.scss'
-import LogoButton from '@/components/Common/LogoButton'
 import { CONTACT_LINKS } from '@/data/contact'
 
 export const metadata = {
@@ -11,7 +10,6 @@ export const metadata = {
 const About = () => {
   return (
     <div className={styles.About}>
-      <LogoButton />
       <div className={styles.content}>
         <div className={styles.information}>
           <h1>Information</h1>

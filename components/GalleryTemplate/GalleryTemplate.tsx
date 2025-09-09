@@ -6,7 +6,6 @@ import { LayoutGrid, PanelsTopLeft } from 'lucide-react'
 import PhotoThumbnail from './PhotoThumbnail'
 import PhotoRows from './PhotoRows'
 import { Photo } from '@/types/Photo'
-import LogoButton from '../Common/LogoButton'
 
 type GalleryProps = {
   fetchPhotos: (
@@ -83,7 +82,6 @@ const GalleryTemplate = ({
         isThumbnailMode ? styles.thumbnail_mode : styles.full_img_mode
       }`}
     >
-      <LogoButton />
       <button
         className={styles.toggle_mode_btn}
         onClick={handleModeToggle}

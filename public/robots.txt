@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jesselindphoto.vercel.app
+
+# Sitemaps
+Sitemap: https://jesselindphoto.vercel.app/sitemap.xml

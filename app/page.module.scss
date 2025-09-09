@@ -1,18 +1,30 @@
 @use '@/styles/vars' as *;
 
 .hero {
+  background: $primary-background;
   padding: var(--vertical-padding) var(--horizontal-padding);
 
+  $animation-delay: 0.3s;
   .content {
     --container-width: calc(100vw - var(--horizontal-padding) * 2);
 
     position: relative;
     gap: $gap-large;
     width: 100%;
+    .imagesContainer {
+      opacity: 0;
+      &.loaded {
+        opacity: 1;
+        transition: opacity 0.01s linear;
+        transition-delay: $animation-delay;
+      }
+    }
 
     img {
       position: absolute;
       object-fit: contain;
+      user-select: none;
+      pointer-events: none;
     }
 
     a {
@@ -177,5 +189,60 @@
         z-index: 12;
       }
     }
+  }
+  .loadingPage {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background: $primary-background;
+    text-align: center;
+    span {
+      font-size: 48px;
+      font-weight: 400 !important;
+      width: 1ch;
+    }
+    &.loaded {
+      animation: fadeOutToBack 3s ease forwards;
+      animation-delay: $animation-delay;
+    }
+  }
+}
+
+.notFoundPage {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 36px;
+  h1 {
+    font-size: $fs-medium;
+  }
+  a {
+    text-decoration: underline;
+    font-size: $fs-regular;
+  }
+}
+
+@keyframes fadeOutToBack {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% {
+    opacity: 0;
+    z-index: -10;
   }
 }
