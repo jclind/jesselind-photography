@@ -91,6 +91,23 @@ const Navbar = () => {
               )
             )}
           </div>
+
+          <div className={styles.footer}>
+            <div className={styles.copyright}>
+              All images © {new Date().getFullYear()} Jesse Lind. No images may
+              be used, copied, or distributed without prior permission.
+            </div>
+            <div className={styles.bottom}>
+              <div className={styles.developer}>
+                Designed and developed by{' '}
+                <a href='https://jesselind.com/'>Jesse Lind</a>
+              </div>
+              |
+              <Link href='/privacy' className={styles.privacyLink}>
+                Privacy
+              </Link>
+            </div>
+          </div>
         </nav>
       </header>
     </>
