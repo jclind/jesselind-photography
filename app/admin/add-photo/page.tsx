@@ -17,6 +17,7 @@ import { categories, CollectionType } from '@/data/categories'
 import { projects, ProjectType } from '@/data/projects'
 import AdminNav from '../AdminNav'
 import AdminGate from '@/components/AdminGate'
+import { getPhotoID } from '@/util/reSerializePhotos'
 
 export default function AddPhoto() {
   // Metadata inputs that apply to all files
@@ -91,10 +92,6 @@ export default function AddPhoto() {
 
         for (const file of files) {
           // Generate a sanitized ID from filename
-          const id = file.name
-            .replace(/\.[^/.]+$/, '')
-            .toLowerCase()
-            .replace(/\s+/g, '-')
 
           // Get dimensions
           const { width, height } = await getImageDimensionsFromFile(file)
@@ -115,6 +112,8 @@ export default function AddPhoto() {
 
           // Increment sequence number
           lastSequenceNumber++
+
+          const id = getPhotoID(lastSequenceNumber)
 
           // Add photo doc
           const photoRef = doc(collection(db, 'photos'))

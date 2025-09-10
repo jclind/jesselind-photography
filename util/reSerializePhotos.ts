@@ -8,6 +8,10 @@ import {
   writeBatch,
 } from 'firebase/firestore'
 
+export const getPhotoID = (sequenceNumber: number) => {
+  return String(sequenceNumber).padStart(5, '0')
+}
+
 export const reSerializePhotos = async () => {
   try {
     const photosRef = collection(db, 'photos')
@@ -32,7 +36,7 @@ export const reSerializePhotos = async () => {
     // Reassign sequence numbers + ids
     photos.forEach((photo, index) => {
       const sequenceNumber = index
-      const id = String(sequenceNumber).padStart(5, '0')
+      const id = getPhotoID(sequenceNumber)
 
       batch.update(photo.docRef, {
         sequenceNumber,

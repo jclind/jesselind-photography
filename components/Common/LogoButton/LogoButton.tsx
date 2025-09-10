@@ -9,7 +9,7 @@ const LogoButton = () => {
   const pathname = usePathname()
 
   // Only show LogoButton if NOT on the homepage
-  const showLogo = pathname !== '/'
+  const showLogo = pathname !== '/' && !pathname.includes('admin')
   if (!showLogo) return null
   return (
     <Link href='/' className={styles.nav_logo} aria-label='Home link'>
