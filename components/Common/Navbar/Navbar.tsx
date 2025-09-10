@@ -91,6 +91,21 @@ const Navbar = () => {
               )
             )}
           </div>
+
+          <div className={styles.footer}>
+            <div className={styles.developer}>
+              Designed and developed by{' '}
+              <a href='https://jesselind.com/'>Jesse Lind</a>
+            </div>
+            <div className={styles.bottom}>
+              <div className={styles.copyright}>
+                © {new Date().getFullYear()}
+              </div>
+              <Link href='/privacy' className={styles.privacyLink}>
+                Privacy
+              </Link>
+            </div>
+          </div>
         </nav>
       </header>
     </>
