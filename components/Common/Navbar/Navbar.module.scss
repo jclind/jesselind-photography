@@ -95,15 +95,25 @@
     bottom: 24px;
     font-size: $fs-xxs;
     color: $secondary-text;
+    gap: $gap-medium;
     a {
       color: $secondary-text;
       text-decoration: underline;
     }
     .bottom {
       display: flex;
-      gap: $gap-medium;
+      gap: $gap-small;
     }
-    .developer {
+    .copyright {
+      max-width: 50%;
+    }
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column-reverse;
+      justify-content: center;
+      text-align: center;
+      .copyright {
+        // max-width: 40%;
+      }
     }
   }
 }
